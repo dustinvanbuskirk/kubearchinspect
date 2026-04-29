@@ -25,8 +25,9 @@ ARG TARGETARCH=arm64
 
 RUN apk add --no-cache wget tar ca-certificates
 
-RUN wget -qO /tmp/kubearchinspect.tar.gz \
-    "https://github.com/ArmDeveloperEcosystem/kubearchinspect/releases/download/v${VERSION}/kubearchinspect_${TARGETOS^}_${TARGETARCH}.tar.gz" \
+RUN OS=$(echo "${TARGETOS}" | awk '{print toupper(substr($0,1,1)) tolower(substr($0,2))}') \
+    && wget -qO /tmp/kubearchinspect.tar.gz \
+    "https://github.com/ArmDeveloperEcosystem/kubearchinspect/releases/download/v${VERSION}/kubearchinspect_${OS}_${TARGETARCH}.tar.gz" \
     && tar xz -f /tmp/kubearchinspect.tar.gz -C /tmp/ \
     && chmod +x /tmp/kubearchinspect
 
