@@ -1,26 +1,10 @@
-# Dockerfile for kubearchinspect
-# Arm Developer Ecosystem - https://github.com/ArmDeveloperEcosystem/kubearchinspect
-#
-# Build and push to ECR:
-#
-#   VERSION=0.7.0
-#   REPO=336151728602.dkr.ecr.us-east-1.amazonaws.com/kubearchinspect
-#
-#   aws ecr create-repository --repository-name kubearchinspect --region us-east-1
-#
-#   docker buildx build \
-#     --platform linux/arm64 \
-#     --build-arg VERSION=${VERSION} \
-#     -t ${REPO}:${VERSION} \
-#     -t ${REPO}:latest \
-#     --push .
-
 ARG VERSION=0.7.0
 ARG KUBEARCHINSPECT_VERSION=0.7.0
 
 # --- Download stage ---
 FROM alpine:3.19 AS downloader
 ARG VERSION
+ARG KUBEARCHINSPECT_VERSION=0.7.0
 ARG TARGETOS=linux
 ARG TARGETARCH=arm64
 
