@@ -16,6 +16,7 @@
 #     --push .
 
 ARG VERSION=0.7.0
+ARG KUBEARCHINSPECT_VERSION=0.7.0
 
 # --- Download stage ---
 FROM alpine:3.19 AS downloader
@@ -27,7 +28,7 @@ RUN apk add --no-cache wget tar ca-certificates
 
 RUN OS=$(echo "${TARGETOS}" | awk '{print toupper(substr($0,1,1)) tolower(substr($0,2))}') \
     && wget -qO /tmp/kubearchinspect.tar.gz \
-    "https://github.com/ArmDeveloperEcosystem/kubearchinspect/releases/download/v${VERSION}/kubearchinspect_${OS}_${TARGETARCH}.tar.gz" \
+    "https://github.com/ArmDeveloperEcosystem/kubearchinspect/releases/download/v${KUBEARCHINSPECT_VERSION}/kubearchinspect_${OS}_${TARGETARCH}.tar.gz" \
     && tar xz -f /tmp/kubearchinspect.tar.gz -C /tmp/ \
     && chmod +x /tmp/kubearchinspect
 
