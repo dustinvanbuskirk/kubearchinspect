@@ -7,7 +7,7 @@
 # You must build and push your own image to ECR using the provided Dockerfile.
 # See the README for build instructions.
 image:
-  repository: ""  # e.g. 336151728602.dkr.ecr.us-east-1.amazonaws.com/kubearchinspect
+  repository: "codedev.jfrog.io/dvb-demo/kubearchinspect"  # e.g. 336151728602.dkr.ecr.us-east-1.amazonaws.com/kubearchinspect
   tag: "0.7.0"
   pullPolicy: IfNotPresent
 
