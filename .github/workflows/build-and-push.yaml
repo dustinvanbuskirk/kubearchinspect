@@ -97,6 +97,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           build-args: |
             VERSION=${{ steps.meta.outputs.version }}
+            KUBEARCHINSPECT_VERSION=0.7.0
             IMAGE=${{ steps.meta.outputs.image_uri }}
             TEXT_COLOR=${{ vars.TEXT_COLOR || '#FFFFFF' }}
             BG_COLOR=${{ vars.BG_COLOR || '#2C3E50' }}
